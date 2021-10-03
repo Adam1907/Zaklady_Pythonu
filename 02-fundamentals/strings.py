@@ -158,3 +158,54 @@ funkční kód, tím lepší).
 3. Vytvořte funkci, která vygeneruje náhodná hesla pro počet osob zadaný v parametru tak, aby heslo začínalo
    3 velkými písmeny, pokračovalo 3 malými písmeny, jedním speciálním znakem (-/+*) a končilo 3 náhodnými číslicemi.
 '''
+"""1.
+
+import datetime
+
+rok = input("Zadejte rok:")
+den = input("Zadejte den:")
+mesic = input("Zadejte mesic:")
+
+x = datetime.datetime(int(rok), int(mesic), int(den))
+
+print(x.strftime("%Y-%m-%d"))
+-"""
+
+"""2.
+
+import camelcase
+
+def convert():
+    c = camelcase.CamelCase()
+
+    souslovi = input("Zadejte sousloví:")
+    print("A)",souslovi.replace(" ", "_"))
+    print("B)",(c.hump(souslovi).replace(" ", "")))
+
+convert()
+
+-"""
+
+"""3."""
+
+import string
+import random
+
+def passwordGenerator():
+
+    amount = int(input("Zadejte počet požadovaných hesel:"))
+
+    i = 0
+    while i < amount:
+
+        Capital = random.choices(string.ascii_uppercase, k=3)
+        Lower = random.choices(string.ascii_lowercase, k=3)
+        Special = random.choices(string.punctuation)
+        Num = random.choices(string.digits, k=3)
+        password = Capital+Lower+Special+Num
+        print("".join(password))
+        i += 1
+
+passwordGenerator()
+
+"""-"""
