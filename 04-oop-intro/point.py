@@ -142,10 +142,23 @@ class InfoPoint(Point):
 
 
 #? Vytvoř objekt bod1 na pozici x: 8, y: 5
-Point.__MAX_X = 500
-Point.MAX_Y = 500
+# Point.__MAX_X = 500
+# Point.MAX_Y = 500
 bod1 = Point(8, 5)
 print(bod1)
+bod2 = InfoPoint(3, 15, "http://seznam.cz")
+bod2.color = "blue"
+print(bod2)
+bod2.x = 12
+#bod2.x = bod1.x
+print(bod2)
+print(bod1 == bod2)
+print(bod2 > bod1)
+print(bod2.color)
+print(bod1.draw())
+print(bod2.draw())
+print(type(bod1))
+print(isinstance(bod1, object))
 
 #? Vytvoř objekt bod2 na pozici x: 4, y: 10
 bod2 = InfoPoint(4, 10, 'https://www.sspu-opava.cz')

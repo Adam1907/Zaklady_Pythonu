@@ -9,6 +9,8 @@ https://www.youtube.com/watch?v=_uQrJ0TkZlc&list=PLDDhGQzLtPdbS987RIIT8WKwb-L_K2
 https://www.w3schools.com/python/python_lists.asp
 https://macek.sandbox.cz/texty/python-tutorial-cz/tut/node5.html
 '''
+import random
+import string
 
 '''
 Příklady různých seznamů v Pythonu:
@@ -56,11 +58,11 @@ print(f'\tVypíše každý druhý prvek ze seznamu letters: {letters[::2]}')
 # ??? 1. cvičení ???
 # Doplňte podle zadání chybějící u následujících tří výpisů
 print('\n1. Cvičení\n***********************************************************************************************')
-print(f'\tVypíše poslední 2 prvky ze seznamu numbers: ???')
-print(f'\tVypíše každý sudý prvek ze seznamu letters: ???')
-print(f'\tVypíše všechny hodnoty z mixed_list kromě dvou posledních: ???')
-print(f'\tVypíše hodnotu prvku name ze slovníku umístěného v seznamu mixed_list: ???')
-print(f'\tVypíše hodnotu předposledního čísla z listu numbers umístěného v seznamu mixed_list: ???')
+print(f'\tVypíše poslední 2 prvky ze seznamu numbers: {numbers[-2:]}')
+print(f'\tVypíše každý sudý prvek ze seznamu letters: {letters[::2]}')
+print(f'\tVypíše všechny hodnoty z mixed_list kromě dvou posledních:{mixed_list[:-2]} ')
+print(f'\tVypíše hodnotu prvku name ze slovníku umístěného v seznamu mixed_list:')
+print(f'\tVypíše hodnotu předposledního čísla z listu numbers umístěného v seznamu mixed_list:')
 print('***********************************************************************************************\n')
 # ??? Konec 1. cvičení ???
 
@@ -198,6 +200,10 @@ persons = [
     ('Jana', 21, 'žena'),
     ('Ivan', 40, 'muž'),
     ('Milada', 50, 'žena'),
+    ('Josef', 38, 'muž'),
+    ('Martin', 18, 'muž'),
+    ('Petra', 68, 'žena'),
+    ('Michaela', 21, 'žena')
 ]
 
 # Funkce řídící způsob řazení - seznam se uspořádá podle 2. hodnoty v n-tici (tuple) - věku osoby
@@ -285,8 +291,22 @@ print(f'\tSbalení seznamů do proměnné values: {values}\n')
 from random import randint
 
 print(f'\n*************************************\nCvičení 2\n*************************************')
-
-
+#a
+hundreds = list(range(1,2001))
+hundreds = [x for x in range(200, 2001, 200)]
+print(hundreds)
+#b
+ascii = [x for i in range(50) for x in random.choice(string.ascii_uppercase)]
+print(ascii)
+#c
+hundreds = hundreds[3:-3]
+print(hundreds)
+#d
+unique = [x for x in ascii if (ascii.count(x) == 1)]
+print(unique)
+#e
+zipped = zip(hundreds, unique)
+print(zipped)
 
 # ??? 3. cvičení ???
 # a) Přidejte do listu persons ještě n-tice (tuples) dalších 2 žen a 2 mužů.
@@ -298,3 +318,18 @@ print(f'\n*************************************\nCvičení 2\n******************
 # Záznamy budou seřazeny podle věku (sestupně).
 
 print(f'\n*************************************\nCvičení 3\n*************************************')
+print("Seznam osob:",persons)
+women = list(filter(lambda person: person[2] == "žena", persons))
+women = [person for person in persons if person[2] == "žena"]
+for person in women:
+    print(f"{person[0]}\n" + "-" * len(person[0]))
+
+ipeople = list(filter(lambda person: person[0].count("1") > 0 or person[0].count("I") > 0,persons))
+ipeople = [person for person in persons if person[0].count("i") > 0 or person[0].count("I") > 0]
+ipeople.sort(key=lambda item: item[1], reverse=True)
+print(ipeople)
+
+ipeopleCSV = "index;jmeno;vek;pohlavi\n"
+for i in range(len(ipeople)):
+    ipeopleCSV += f"{i};" + ";".join(map(str, ipeople[i])) + "\n"
+print(ipeopleCSV)

@@ -5,8 +5,8 @@ klíč (angl. key) a hodnotu (angl. value).
 Každému klíči je přiřazena jedna hodnota.
 '''
 
-# Collection which is unordered, changeable and indexed.
-# In Python dictionaries are written with curly brackets, and they have keys and values.
+# Kolekce které jsou neseřazeny, pozměnitelné a indexované.
+# V Pythonu jsou dictionaries  psány složenými zavorkami, mají klíče a hodnoty.
 car = {
   'brand': 'Ford',
   'model': 'Mustang',
@@ -94,3 +94,42 @@ child3          Linus               2011
 ---------------------------------------------
 Počet záznamů: 3
 '''
+films = {
+  'film1' : {
+    'name' : 'Star Wars A New Hope',
+    'director' : 'George Lucas',
+    'year' : 1977,
+    'soundtrack' : ('Main Title','Imperial Attack','The Land of the Sand People'),
+    'awards' : {'Oscar', 'Golden Globe'},
+    'actors' : ['Mark Hamill', 'Carrie Fisher', 'Harrison Ford'],
+    'sequel' : True
+   },
+  'film2' : {
+      'name' : 'Gladiator',
+      'director' : 'Ridley Scott',
+      'year' : 2000,
+      'soundtrack' : ('Progeny-Hans Zimmer','The Battle-Hans Zimmer','Am I Not Merciful-Hans Zimmer'),
+      'awards' : {'Oscar', 'Golden Globe', 'BFCA'},
+      'actors' : ['Russell Crowe', 'Joaquin Phoenix', 'Connie Nielsen'],
+      'sequel' : False
+   },
+  'film3' : {
+      'name' : 'Dune',
+      'director' : 'Denis Villeneuve',
+      'year' : 2021,
+      'soundtrack' : ('Prologue','Trip To Arrakis','Final Dream'),
+      'awards' : {"-"},
+      'actors' : ['Timothée Chalamet', 'Rebecca Ferguson', 'Oscar Isaac'],
+      'sequel' : False
+   }
+}
+
+print("Původní:",films)
+
+print(f'films.popitem(): {films.popitem()}')
+
+
+
+films["film3"] = {'name': 'Example', 'director': 'Example', 'year': 2020, 'soundtrack': ('Example', 'Example', 'Example'), 'awards': {'Example', 'Example'}, 'actors': ['Example', 'Example', 'Example'], 'sequel': True}
+
+print("Změna:", films)

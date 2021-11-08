@@ -1,6 +1,6 @@
 '''
 Tuples - neměnitelné n-tice hodnot (seřazený seznam prvků)
-In Python tuples are written with round brackets.
+V Pythonu tuples se zapisují kulatýma závorkama.
 '''
 
 # Vytvoření tuples
